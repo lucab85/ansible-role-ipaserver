@@ -1,0 +1,6 @@
+---
+setup_pkg:
+  - ansible
+  - wget
+subscription_username: "YOUR-REDHAT-SUBSCRIPTION-USERNAME"
+subscription_password: "YOUR-REDHAT-SUBSCRIPTION-PASSWORD"
