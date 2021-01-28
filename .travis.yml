@@ -28,5 +28,6 @@ install:
 - sudo vagrant plugin install vagrant-libvirt
 
 script:
+- sudo ansible-galaxy collection install -r requirements.yml
 - sudo vagrant up --provider=libvirt
 - sudo vagrant ssh -c "echo 'hello world!'"
