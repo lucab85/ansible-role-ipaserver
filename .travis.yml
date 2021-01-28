@@ -8,6 +8,9 @@ cache:
   - /home/travis/.vagrant.d/boxes
 
 install:
+# Enalbe ansible repository
+- sudo apt-add-repository ppa:ansible/ansible
+
 # Install libvrt & KVM (see https://github.com/alvistack/ansible-role-virtualbox/blob/master/.travis.yml)
 - sudo apt-get update && sudo apt-get install -y bridge-utils dnsmasq-base ebtables libvirt-bin libvirt-dev qemu-kvm qemu-utils ruby-dev ansible
 
