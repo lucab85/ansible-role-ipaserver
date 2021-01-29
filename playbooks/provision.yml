@@ -19,24 +19,6 @@
         ['distribution_major_version'] == '8'
       ignore_errors: yes
 
-    - name: Generate /etc/hosts file
-      blockinfile:
-        state: present
-        insertafter: EOF
-        dest: /etc/hosts
-        content: |
-          192.168.0.98 ipa ipa.example.com
-
-    - name: upgrade all packages
-      yum:
-        name: "*"
-        state: latest
-
-    - name: Required packages are installed and up to date
-      yum:
-        name: "{{ setup_pkg }}"
-        state: latest
-
   collections:
    - freeipa.ansible_freeipa
 
@@ -44,11 +26,3 @@
     - name: import role from a collection
       import_role:
         name: freeipa.ansible_freeipa.ipaserver
-
-  post_tasks:
-    - name: Enable ldap in firewalld
-      firewalld:
-        service: ldap
-        state: enabled
-        immediate: true
-        permanent: true
