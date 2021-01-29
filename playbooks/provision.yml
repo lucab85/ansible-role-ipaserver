@@ -17,6 +17,7 @@
         auto_attach: true
       when: ansible_facts['os_family'] == 'RedHat' and ansible_facts
         ['distribution_major_version'] == '8'
+      ignore_errors: yes
 
     - name: Generate /etc/hosts file
       blockinfile:
